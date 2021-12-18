@@ -1,0 +1,31 @@
+.menu-box {
+   text-align: center;
+   margin-bottom: 50px;
+   padding: 0 50px;
+   color: #999;
+   cursor: pointer;
+   &:hover {
+      .img-box img {
+         transform: scale(1.08);
+      }
+   }
+   .img-box {
+      img {
+         width: 200px;
+         height: 200px;
+         transition: .4s;
+      }
+   }
+   .info {
+      margin-top: 15px;
+      .name {
+         font-weight: 500 !important;
+         text-transform: uppercase;
+         color: #fff;
+      }
+      .price {
+         color: #fe9d3e;
+         font-weight: 500 !important;
+      }
+   }
+}

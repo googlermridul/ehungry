@@ -1,0 +1,17 @@
+.food-details {
+   .img-box {
+      img {
+         width: 100%;
+      }
+   }
+   .info {
+      color: #666;
+      .name {
+         color: #121619;
+      }
+      .price {
+         color: #fe9d3e;
+         margin: 15px 0;
+      }
+   }
+}

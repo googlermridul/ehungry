@@ -1,0 +1,40 @@
+.reservation-section {
+   margin: 100px 0;
+   .header-text {
+      text-align: left;
+      h1 {
+         margin-bottom: 30px;
+      }
+      p {
+         margin-bottom: 30px;
+      }
+      h3 {
+         img {
+            width: 32px;
+            margin-right: 15px;
+         }
+      }
+   }
+   .form-box {
+      h3 {
+         margin-bottom: 15px;
+         text-transform: uppercase;
+      }
+      .form-group {
+         margin-bottom: 15px;
+         .form-control {
+            border-radius: 0px;
+            color: #666;
+            height: 50px;
+            border: 1px solid #e5e5e5;
+            &:focus {
+               box-shadow: 0 0rem 0rem rgba(0,0,0,.15)!important;
+               border: 1px solid #fe9d3e;
+            }
+         }
+         .date {
+            color: #666;
+         }
+      }
+   }
+}

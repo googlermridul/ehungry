@@ -1,0 +1,34 @@
+.menu-section {
+   background: #121619;
+   padding: 175px 0 150px 0;
+   color: #fff;
+   position: relative;
+   &::before {
+      content: '';
+      width: 100%;
+      height: 125px;
+      background: url(../../images/black-top-layer.png);
+      background-repeat: no-repeat;
+      background-position: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+   }
+   &::after {
+      content: '';
+      width: 100%;
+      height: 125px;
+      background: url(../../images/black-bottom-layer.png);
+      background-repeat: no-repeat;
+      background-position: center;
+      position: absolute;
+      bottom: 0px;
+      left: 0;
+      z-index: 1;
+   }
+   .bottom {
+      text-align: center;
+      margin-bottom: 50px;
+   }
+}

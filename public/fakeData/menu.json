@@ -1,0 +1,72 @@
+[
+   {
+      "id": 1,
+      "name": "MARGHERITA PIZZA",
+      "description": "Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.\n\nPhasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.",
+      "image": "https://i.ibb.co/CzCvdLQ/menu-10.png",
+      "price": 34
+   },
+   {
+      "id": 2,
+      "name": "VALDOSTANA PIZZA",
+      "description": "Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.",
+      "image": "https://i.ibb.co/VwrDq0L/menu-2.png",
+      "price": 36
+   },
+   {
+      "id": 3,
+      "name": "PANEER MAKHANI PIZZA",
+      "description": "Fusce consequat. Nulla nisl. Nunc nisl.\n\nDuis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.\n\nIn hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.",
+      "image": "https://i.ibb.co/4N4LhrT/menu-3.png",
+      "price": 74
+   },
+   {
+      "id": 4,
+      "name": "PEPPERONI PIZZA",
+      "description": "Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.",
+      "image": "https://i.ibb.co/18DMTHD/menu-1.png",
+      "price": 48
+   },
+   {
+      "id": 5,
+      "name": "RUM WITH SODA",
+      "description": "Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.\n\nFusce consequat. Nulla nisl. Nunc nisl.\n\nDuis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.",
+      "image": "https://i.ibb.co/w7BT46X/menu-5.png",
+      "price": 63
+   },
+   {
+      "id": 6,
+      "name": "RUM WITH SODA",
+      "description": "Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.\n\nFusce consequat. Nulla nisl. Nunc nisl.\n\nDuis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.",
+      "image": "https://i.ibb.co/6g5BVfD/menu-6.png",
+      "price": 63
+   },
+   {
+      "id": 7,
+      "name": "RUM WITH SODA",
+      "description": "Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.\n\nFusce consequat. Nulla nisl. Nunc nisl.\n\nDuis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.",
+      "image": "https://i.ibb.co/0Dkn7P0/menu-7.png",
+      "price": 63
+   },
+   {
+      "id": 8,
+      "name": "RUM WITH SODA",
+      "description": "Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.\n\nFusce consequat. Nulla nisl. Nunc nisl.\n\nDuis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.",
+      "image": "https://i.ibb.co/xhpV9H1/menu-8.png",
+      "price": 63
+   },
+   {
+      "id": 9,
+      "name": "RUM WITH SODA",
+      "description": "Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.\n\nFusce consequat. Nulla nisl. Nunc nisl.\n\nDuis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.",
+      "image": "https://i.ibb.co/CJd7yp0/menu-9.png",
+      "price": 63
+   },
+   {
+      "id": 10,
+      "name": "RUM WITH SODA",
+      "description": "Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.\n\nFusce consequat. Nulla nisl. Nunc nisl.\n\nDuis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.",
+      "image": "https://i.ibb.co/6Bp3bM2/menu-4.png",
+      "price": 63
+   }
+]

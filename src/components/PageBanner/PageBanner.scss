@@ -1,0 +1,17 @@
+.page-banner {
+   margin: 0px 0 50px 0;
+   padding: 150px 0 100px 0;
+   background: url(../../images/pageBanner.png);
+   background-size: cover;
+   background-position: center;
+   .page-header-text {
+      text-align: center;
+      color: #fff;
+      h2 {
+         text-transform: uppercase;
+      }
+      .link {
+         color: #fff;
+      }
+   }
+}

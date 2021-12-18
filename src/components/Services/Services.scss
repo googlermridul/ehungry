@@ -1,0 +1,38 @@
+.feature-section {
+   padding: 50px 0;
+   margin-bottom: 250px;
+   background: #fe9d3e;
+   position: relative;
+   &::before {
+      content: '';
+      width: 100%;
+      height: 125px;
+      background: url(../../images/feature-top-layer.png);
+      background-repeat: no-repeat;
+      position: absolute;
+      top: -125px;
+      left: 0;
+      z-index: 1;
+   }
+   &::after {
+      content: '';
+      width: 100%;
+      height: 125px;
+      background: url(../../images/feature-bottom-layer.png);
+      background-repeat: no-repeat;
+      position: absolute;
+      bottom: -125px;
+      left: 0;
+      z-index: 1;
+   }
+   .feature-box {
+      text-align: center;
+      .icon {
+         margin-bottom: 30px;
+         img {
+            width: 100px;
+            height: 100px;
+         }
+      }
+   }
+}

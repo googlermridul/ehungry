@@ -1,0 +1,32 @@
+.home-banner {
+   background: #121619;
+   .home-bg {
+      background: url(../../images/home-bg.png);
+      background-position: center;
+      background-size: cover;
+      position: relative;
+      height: 90vh;
+      overflow: hidden;
+      .container,
+      .row {
+         height: 100%;
+      }
+      .text-box {
+         color: #fff;
+         z-index: 100000;
+         overflow: hidden;
+         h1 {
+            font-size: 150px;
+            font-weight: 700;
+            span {
+               color: #fe9d3e;
+            }
+         }
+         p {
+            font-size: 20px;
+            letter-spacing: 5px;
+            color: #fe9d3e
+         }
+      }
+   }
+}

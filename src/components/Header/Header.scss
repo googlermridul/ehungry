@@ -1,0 +1,38 @@
+.navbar {
+   // background-color: #121619;
+   // background-image: url(../../images/home-bg.png);
+   background: transparent;
+   padding: 15px 0 !important;
+   .logo {
+      font-family: 'Pacifico', cursive;
+      color: #fff;
+      font-size: 32px;
+      font-weight: normal !important;
+      span {
+         color: #fe9d3e;
+      }
+   }
+   .navbar-toggler {
+      &:focus {   
+         box-shadow: 0 0 0 0rem !important;
+      }
+      .hamburger {      
+         padding-top: 10px;
+      }
+   }
+   .navbar-nav {
+      margin-left: auto;
+      .nav-item {
+         .link {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            margin: 0 25px;
+            transition: .4s;
+            &:hover {
+               color: #fe9d3e;
+            }
+         }
+      }
+   }
+}
