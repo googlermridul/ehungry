@@ -1,0 +1,43 @@
+.login-section {
+   margin: 100px 0;
+   .form-box {
+      max-width: 500px;
+      background: #f5f5f5;
+      padding: 30px;
+      margin: auto;
+      h3 {
+         text-transform: capitalize;
+         margin-bottom: 30px;
+      }
+      .form-group {
+         margin-bottom: 15px;
+         .form-control {
+            border-radius: 0px;
+            color: #666;
+            height: 50px;
+            border: 1px solid #e5e5e5;
+            &:focus {
+               box-shadow: 0 0rem 0rem rgba(0,0,0,.15)!important;
+               border: 1px solid #fe9d3e;
+            }
+         }
+      }
+      .btn-orange,
+      .btn-black {
+         width: 100%;
+      }
+      .google-btn {
+         margin-bottom: 15px;
+         img {
+            margin-right: 15px;
+            width: 20px;
+         }
+      }
+      .switcher {
+         margin-bottom: 0;
+      }
+      hr {
+         background-color: #999;
+      }
+   }
+}

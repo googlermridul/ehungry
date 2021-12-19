@@ -1,4 +1,5 @@
 .food-details {
+   margin: 50px 0;
    .img-box {
       img {
          width: 100%;
@@ -12,6 +13,64 @@
       .price {
          color: #fe9d3e;
          margin: 15px 0;
+      }
+      p {
+         margin-bottom: 30px;
+      }
+   }
+   form {
+      .form-group {
+         margin-bottom: 30px;
+         h5 {
+            margin-bottom: 15px;
+            text-transform: capitalize;
+         }
+         .platter-box {
+            .btn {
+               border: 1px solid #e5e5e5;
+               color: #666;
+               height: 50px;
+               margin: 0 15px 0 0;
+               border-radius: 0;
+               padding: 12px 30px;
+               text-transform: capitalize;
+               &:hover {
+                  background: #fe9d3e;
+                  border: 1px solid #fe9d3e;
+                  color: #fff;
+               }
+            }
+            .btn-check:focus+.btn-outline-primary, .btn-outline-primary:focus {
+               box-shadow: 0 0 0 0rem rgb(13 110 253 / 50%) !important;
+            }
+            .btn-check:active+.btn-outline-primary, .btn-check:checked+.btn-outline-primary, .btn-outline-primary.active, .btn-outline-primary.dropdown-toggle.show, .btn-outline-primary:active {
+               color: #fff;
+               background-color: #fe9d3e;
+               border-color: #fe9d3e;
+            }
+         }
+         .quantity-box {
+            .btn-inc-dec {
+               border: 1px solid #e5e5e5;
+               color: #666;
+               height: 50px;
+               width: 50px;
+               font-size: 32px;
+               text-align: center;
+               cursor: pointer;
+            }
+            input {
+               border: 1px solid #e5e5e5;
+               color: #666;
+               height: 50px;
+               width: 50px;
+               text-align: center;
+               &:focus-visible {
+                  border: 1px solid #e5e5e5;
+                  outline: 0;
+               }
+            }
+         }
       }
    }
 }
