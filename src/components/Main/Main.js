@@ -3,14 +3,16 @@ import Services from '../Services/Services';
 import HomeBanner from '../HomeBanner/HomeBanner';
 import MenuSection from '../MenuSection/MenuSection';
 import Reservation from '../Reservation/Reservation';
+import AboutSection from '../AboutSection/AboutSection';
 
 const Main = () => {
    return (
       <>
          <HomeBanner />
          <Services />
-         <MenuSection />
          <Reservation />
+         <MenuSection />
+         <AboutSection />
       </>
    );
 };

@@ -16,16 +16,36 @@
          z-index: 100000;
          overflow: hidden;
          h1 {
-            font-size: 150px;
+            font-size: 150px !important;
             font-weight: 700;
             span {
                color: #fe9d3e;
             }
          }
          p {
-            font-size: 20px;
+            font-size: 18px;
             letter-spacing: 5px;
-            color: #fe9d3e
+            color: #fe9d3e;
+            margin-bottom: 0;
+         }
+      }
+   }
+}
+
+
+@media (max-width: 1366px) {
+   .home-bg {
+      height: 100vh !important;
+   }
+}
+@media (max-width: 768px) {
+   .home-banner {
+      .home-bg {
+         .text-box {
+            margin-bottom: -82px;
+            h1 {
+               font-size: 100px !important;
+            }
          }
       }
    }

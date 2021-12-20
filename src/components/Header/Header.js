@@ -7,8 +7,14 @@ import './Header.scss'
 const Header = () => {
    const { user, logOut } = useAuth()
 
+   function changeCss () {
+      const element = document.getElementById("navigration");
+      this.scrollY > 100 ? element.classList.add("bg-black") : element.classList.remove("bg-black");
+   }
+   window.addEventListener("scroll", changeCss, false);
+
    return (
-      <nav className="navbar navbar-expand-md fixed-top">
+      <nav id="navigration" className="navbar navbar-expand-md fixed-top">
          <div className="container">
             <Link className="link" to="/home">
                <h3 className="logo"><span>e</span>hungry</h3>
@@ -25,9 +31,6 @@ const Header = () => {
                      <Link className="link" to="/menus">MENU</Link>
                   </li>
                   <li className="nav-item">
-                     <Link className="link" to="/login">login</Link>
-                  </li>
-                  <li className="nav-item">
                      <Link className="link" to="/contact">CONTACT</Link>
                   </li>
                   {
@@ -37,9 +40,12 @@ const Header = () => {
                      </li>
                   }
                   {
-                     user.email && 
+                     user.email ?
                      <li className="nav-item">
                         <button onClick={logOut} className="btn-orange">Logout</button>
+                     </li> :
+                     <li className="nav-item">
+                        <Link className="link" to="/login">login</Link>
                      </li>
                   }
                </ul>

@@ -1,6 +1,6 @@
 .feature-section {
    padding: 50px 0;
-   margin-bottom: 250px;
+   margin-bottom: 175px;
    background: #fe9d3e;
    position: relative;
    &::before {
@@ -9,8 +9,9 @@
       height: 125px;
       background: url(../../images/feature-top-layer.png);
       background-repeat: no-repeat;
+      background-position: center;
       position: absolute;
-      top: -125px;
+      top: -124px;
       left: 0;
       z-index: 1;
    }
@@ -20,8 +21,9 @@
       height: 125px;
       background: url(../../images/feature-bottom-layer.png);
       background-repeat: no-repeat;
+      background-position: center;
       position: absolute;
-      bottom: -125px;
+      bottom: -124px;
       left: 0;
       z-index: 1;
    }

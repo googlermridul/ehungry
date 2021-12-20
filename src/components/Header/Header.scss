@@ -1,7 +1,7 @@
 .navbar {
-   background-color: #121619;
-   // background: transparent;
+   background: transparent;
    padding: 15px 0 !important;
+   transition: .3s;
    .logo {
       font-family: 'Pacifico', cursive;
       color: #fff;
@@ -36,6 +36,26 @@
          .btn-orange {
             height: 45px;
             width: 125px;
+         }
+      }
+   }
+}
+nav.bg-black {
+   background: #121619;
+   transition: .4s;
+}
+
+
+@media (max-width: 767px) {
+   .navbar {
+      background: #121619;
+      .collapse {
+         text-align: center;
+         .navbar-nav {
+            .nav-item {
+               text-align: center;
+               margin: 15px 0;
+            }
          }
       }
    }

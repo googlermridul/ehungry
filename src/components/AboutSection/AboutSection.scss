@@ -1,0 +1,23 @@
+.about-section {
+   position: relative;
+   z-index: 1;
+   margin-top: -175px;
+   .header-text {
+      text-align: left;
+      h1 {
+         margin-bottom: 30px;
+      }
+      p {
+         margin-bottom: 30px;
+      }
+   }
+   .img-box {
+      text-align: center;
+   }
+}
+
+@media (max-width: 575px) {
+   .about-section {
+      margin-top: 50px;
+   }
+}
