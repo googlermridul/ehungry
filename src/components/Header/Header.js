@@ -31,7 +31,10 @@ const Header = () => {
                      <Link className="link" to="/menus">MENU</Link>
                   </li>
                   <li className="nav-item">
-                     <Link className="link" to="/contact">CONTACT</Link>
+                     <Link className="link" to="/cart">CART</Link>
+                  </li>
+                  <li className="nav-item">
+                     <Link className="link" to="/orderHistory">ORDER HISTORY</Link>
                   </li>
                   {
                      user.email && 

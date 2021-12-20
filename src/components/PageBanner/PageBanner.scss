@@ -1,17 +1,21 @@
 .page-banner {
    margin: 0px 0 50px 0;
-   padding: 150px 0 100px 0;
-   background: url(../../images/pageBanner.png);
+   background: url(../../images/page-banner.jpeg);
    background-size: cover;
    background-position: center;
+   .overlay {
+      padding: 180px 0 100px 0;
+      background: rgba(0, 0, 0, 0.6);
+   }
    .page-header-text {
       text-align: center;
       color: #fff;
-      h2 {
-         text-transform: uppercase;
-      }
-      .link {
-         color: #fff;
+      h3 {
+         text-transform: capitalize;
+         font-family: 'Pacifico', cursive !important;
+         color: #fe9d3e;
+         font-weight: 500 !important;
+         margin-bottom: 0;
       }
    }
 }

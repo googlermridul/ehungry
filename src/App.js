@@ -11,6 +11,8 @@ import Login from './components/LoginRegister/Login';
 import Register from './components/LoginRegister/Register';
 import AuthProvider from './contexts/AuthProvider';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import Cart from './components/Cart/Cart';
+import OrderHistory from './components/OrderHistory/OrderHistory';
 
 function App() {
   return (
@@ -27,15 +29,21 @@ function App() {
           <Route path="/menus">
             <MenuPage />
           </Route>
-          <PrivateRoute path="/menu/:menuId">
+          <Route path="/menu/:menuId">
             <FoodDetails />
-          </PrivateRoute>
+          </Route>
           <Route path="/login">
             <Login />
           </Route>
           <Route path="/register">
             <Register />
           </Route>
+          <PrivateRoute path="/cart">
+            <Cart />
+          </PrivateRoute>
+          <PrivateRoute path="/orderHistory">
+            <OrderHistory />
+          </PrivateRoute>
           <Route path="*">
             <NotFound />
           </Route>

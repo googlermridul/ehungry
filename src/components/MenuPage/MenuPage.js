@@ -10,7 +10,7 @@ const MenuPage = () => {
    return (
       <div className="menu-page">
          <PageBanner>
-            <span>FOOD MENUS</span>
+            <span>food menus</span>
          </PageBanner>
          <div className="container">
             <div className="row">

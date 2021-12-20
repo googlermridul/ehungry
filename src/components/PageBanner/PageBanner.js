@@ -1,17 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './PageBanner.scss'
 
 const PageBanner = (props) => {
    
    return (
       <div className="page-banner">
-         <div className="page-header-text">
-            <h2>{props.children}</h2>
-            <p>
-               <Link className="link" to="/">Home</Link>
-               <Link className="link" to="/">Menu</Link>
-            </p>
+         <div className="overlay">
+            <div className="page-header-text">
+               <h3>{props.children}</h3>
+            </div>
          </div>
       </div>
    );

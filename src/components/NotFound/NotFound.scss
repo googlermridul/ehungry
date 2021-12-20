@@ -1,0 +1,18 @@
+.not-found {
+   text-align: center;
+   margin-bottom: 50px;
+   h1 {
+      font-size: 150px !important;
+      font-family: 'Pacifico', cursive !important;
+      font-weight: 700;
+      color: #fe9d3e;
+      margin-bottom: 15px;
+      span {
+         color: #fe9d3e;
+      }
+   }
+   h3 {
+      font-family: 'Pacifico', cursive !important;
+      text-transform: capitalize;
+   }
+}

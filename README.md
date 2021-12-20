@@ -1,6 +1,6 @@
-## eHungry - Tour Package Provider
+## eHungry - Stay hungry eat food
 
-### Live Link: https://eHungrymein.web.app/
+### Live Link: https://e-hungry.web.app/
 
 ### What is eHungry:
 eHungry is a tour package provider website. Here you will find packages to travel anywhere in the country or abroad. eHungry is a trusted and reliable tour and travel agency among all the leading and updated tour-operating services in Bangladesh. We are here to bring the luxury to your traveling.

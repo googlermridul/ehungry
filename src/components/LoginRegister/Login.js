@@ -35,7 +35,7 @@ const Login = () => {
                      { error && <p className="failure-alert">{error}</p> }
                      { user?.email && <p className="success-alert">Account created successfully</p> }
                      <div className="form-box">
-                        <h3>login to ehungry</h3>
+                        <h4>login to ehungry</h4>
                         <button onClick={signInWithGoogle} className="btn-black google-btn shadow-sm"><img src={googleIcon} alt="" /> Sign in With Google</button>
                         <div className="divider">
                            <span>or Sign in with Email</span>

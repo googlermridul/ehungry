@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import useMenus from '../../hooks/useMenus';
 import PageBanner from '../PageBanner/PageBanner';
@@ -28,7 +29,7 @@ const FoodDetails = () => {
    return (
       <>
          <PageBanner>
-            <span>FOOD details</span>
+            <span>food details</span>
          </PageBanner>
          <div className="food-details">
             <div className="container">
@@ -71,7 +72,9 @@ const FoodDetails = () => {
                               </div>
                            </div>
                         </div>
-                        <button type="submit" className="btn-black">Add to cart</button>
+                        <Link to="/cart">
+                           <button type="submit" className="btn-black">Add to cart</button>
+                        </Link>
                      </form>
                   </div>
                </div>

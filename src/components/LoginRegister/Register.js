@@ -36,7 +36,7 @@ const Register = () => {
                      { error && <p className="failure-alert">{error}</p> }
                      { user?.email && <p className="success-alert">Account created successfully</p> }
                      <div className="form-box">
-                        <h3>Signup to ehungry</h3>
+                        <h4>Signup to ehungry</h4>
                         <button onClick={signInWithGoogle} className="btn-black google-btn shadow-sm"><img src={googleIcon} alt="" /> Sign up With Google</button>
                         <div className="divider">
                            <span>or Sign up with Email</span>

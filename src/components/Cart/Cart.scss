@@ -1,0 +1,109 @@
+.cart {
+   margin: 50px 0;
+   h4 {
+      margin-bottom: 15px;
+      text-transform: uppercase;
+   }
+   .cart-table {
+      margin-bottom: 50px;
+      overflow: auto;
+      .table {
+         caption-side: bottom;
+         border-collapse: collapse;
+         border-spacing: 0px;
+         min-width: 800px;
+         tbody {
+            border-top: 0px;
+         }
+         thead {
+            background: #f7f7f8;
+            th {
+               color: #121619;
+               font-weight: 600;
+               padding: 15px !important;
+               border: 1px solid #e5e5e5;
+               text-align: center;
+            }
+         }
+         td {
+            border: 1px solid #e5e5e5;
+            color: #666;
+            padding: 15px !important;
+            text-align: center;
+            align-items: center;
+            .delete {
+               height: 40px;
+               width: 40px;
+               border-radius: 0;
+               .fa-icon {
+                  font-size: 12px;
+               }
+            }
+            img {
+               width: 100px;
+               height: 100px;
+            }
+            p {
+               height: 100px;
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               margin-bottom: 0;
+            }
+         }
+      }
+   }
+   .buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 15px;
+      margin-bottom: 50px;
+      .btn-orange {
+         border-radius: 0;
+         letter-spacing: 1px;
+         font-weight: 600;
+      }
+   }
+}
+.order-box {
+   .list {
+      background: #f7f7f8;
+      border: 1px solid #e5e5e5;
+      border-top: none;
+      p {
+         border-top: 1px solid #e5e5e5;
+         margin-bottom: 0;
+         padding: 12.5px;
+         span {
+            float: right;
+            color: #666;
+         }
+      }
+   }
+   .btn-black {
+      width: 100%;
+      border-radius: 0;
+      margin-top: 15px;
+      height: 45px;
+      font-weight: normal;
+   }
+}
+
+.billing-box {
+   .form-group {
+      margin-bottom: 15px;
+      .form-control {
+         border-radius: 0px;
+         color: #666;
+         height: 50px;
+         border: 1px solid #e5e5e5;
+         &:focus {
+            box-shadow: 0 0rem 0rem rgba(0,0,0,.15)!important;
+            border: 1px solid #121619;
+         }
+      }
+      .date {
+         color: #666;
+      }
+   }
+}
