@@ -1,9 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import useAuth from '../../hooks/useAuth';
 import hamburger from '../../images/menu2.png'
 import './Header.scss'
 
 const Header = () => {
+   const { user, logOut } = useAuth()
+
    return (
       <nav className="navbar navbar-expand-md fixed-top">
          <div className="container">
@@ -27,6 +30,18 @@ const Header = () => {
                   <li className="nav-item">
                      <Link className="link" to="/contact">CONTACT</Link>
                   </li>
+                  {
+                     user.email && 
+                     <li className="nav-item">
+                        <span className="link">{user.displayName}</span>
+                     </li>
+                  }
+                  {
+                     user.email && 
+                     <li className="nav-item">
+                        <button onClick={logOut} className="btn-orange">Logout</button>
+                     </li>
+                  }
                </ul>
             </div>
          </div>

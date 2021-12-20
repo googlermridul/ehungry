@@ -21,6 +21,7 @@
    }
    .navbar-nav {
       margin-left: auto;
+      align-items: center;
       .nav-item {
          .link {
             color: #fff;
@@ -31,6 +32,10 @@
             &:hover {
                color: #fe9d3e;
             }
+         }
+         .btn-orange {
+            height: 45px;
+            width: 125px;
          }
       }
    }

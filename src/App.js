@@ -10,6 +10,7 @@ import Footer from './components/Footer/Footer';
 import Login from './components/LoginRegister/Login';
 import Register from './components/LoginRegister/Register';
 import AuthProvider from './contexts/AuthProvider';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 function App() {
   return (
@@ -26,9 +27,9 @@ function App() {
           <Route path="/menus">
             <MenuPage />
           </Route>
-          <Route path="/menu/:menuId">
+          <PrivateRoute path="/menu/:menuId">
             <FoodDetails />
-          </Route>
+          </PrivateRoute>
           <Route path="/login">
             <Login />
           </Route>

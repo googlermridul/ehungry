@@ -4,7 +4,7 @@ import phone from '../../images/phone-call.png'
 import './Reservation.scss'
 
 const Reservation = () => {
-   const { register, handleSubmit, reset, formState: { errors } } = useForm();
+   const { register, handleSubmit, formState: { errors } } = useForm();
    const onSubmit = data => {
 
       // fetch(`https://tranquil-atoll-29388.herokuapp.com/addBooking`, {

@@ -9,7 +9,7 @@ const FoodDetails = () => {
    const [menus] = useMenus();
    const [details, setDetails] = useState({});
    const [count, setCount] = useState(1);
-   const { register, handleSubmit, reset, formState: { errors } } = useForm();
+   const { register, handleSubmit, formState: { errors } } = useForm();
    const {menuId} = useParams();
 
    useEffect(() => {
