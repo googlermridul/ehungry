@@ -11,7 +11,7 @@ const AboutSection = () => {
                   <div className="header-text">
                      <span>Delicious Restaurant</span>
                      <h1>OUR SPECIALITY</h1>
-                     <p>Sit amet, consectetur adipiscing elit quisque eget maximus velit, non eleifend libero curabitur dapibus mauris sed leo cursus aliquetcras suscipit. Sit amet, consectetur adipiscing elit quisque eget maximus velit, non eleifend libero curabitur</p>
+                     <p>Ehungry is a restaurant site. With this you can order the food of your choice online. Ehungry is a restaurant site. With this you can order the food of your choice online. Ehungry is a restaurant site. With this you can order the food of your choice online.</p>
                      <button className="btn-orange">view more</button>
                   </div>
                </div>

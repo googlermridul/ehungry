@@ -5,20 +5,8 @@ import './Reservation.scss'
 
 const Reservation = () => {
    const { register, handleSubmit, formState: { errors } } = useForm();
+   
    const onSubmit = data => {
-
-      // fetch(`https://tranquil-atoll-29388.herokuapp.com/addBooking`, {
-      //    method: 'POST',
-      //    headers: { 'Content-Type': 'application/json'},
-      //    body: JSON.stringify(data)
-      // })
-      // .then(res => res.json())
-      // .then(result => {
-      //    if (result.insertedId) {
-      //       alert('Package booked successfully')
-      //       reset()
-      //    }
-      // })
       console.log(data);
    };
 
@@ -30,7 +18,7 @@ const Reservation = () => {
                   <div className="header-text">
                      <span>Reserve your table</span>
                      <h1>BOOK ONLINE</h1>
-                     <p>Sit amet, consectetur adipiscing elit quisque eget maximus velit, non eleifend libero curabitur dapibus mauris sed leo cursus aliquetcras suscipit. Sit amet, consectetur adipiscing elit quisque eget maximus velit, non eleifend libero curabitur</p>
+                     <p>Ehungry is a restaurant site. With this you can order the food of your choice online. Ehungry is a restaurant site. With this you can order the food of your choice online. Ehungry is a restaurant site. With this you can order the food of your choice online.</p>
                      <h3>
                         <img className="img-fluid" src={phone} alt="" />
                         +91 123 456 789 0

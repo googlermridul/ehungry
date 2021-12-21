@@ -15,7 +15,7 @@ const Cart = () => {
    const [ tax, setTax ] = useState('');
 
    useEffect(() => {
-      fetch(`http://localhost:5000/cartOrders/${user.email}`)
+      fetch(`https://radiant-river-46012.herokuapp.com/cartOrders/${user.email}`)
       .then(res => res.json())
       .then(data => setCartOrders(data))
    }, [user])
@@ -34,7 +34,7 @@ const Cart = () => {
    const handleDelete = id => {
       const proceed = window.confirm('Are you sure you want to delete')
       if (proceed) {
-         fetch(`http://localhost:5000/deleteCartOrder/${id}`, {
+         fetch(`https://radiant-river-46012.herokuapp.com/deleteCartOrder/${id}`, {
             method: 'DELETE'
          })
          .then(res => res.json())
@@ -53,7 +53,7 @@ const Cart = () => {
       data.price = subTotal + tax;
       data.quantity = totalQuantity;
 
-      fetch(`http://localhost:5000/addOrder`, {
+      fetch(`https://radiant-river-46012.herokuapp.com/addOrder`, {
          method: 'POST',
          headers: { 'Content-Type': 'application/json'},
          body: JSON.stringify(data)

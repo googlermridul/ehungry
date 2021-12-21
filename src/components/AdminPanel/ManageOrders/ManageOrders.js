@@ -7,13 +7,13 @@ const ManageOrders = () => {
    const [orders, setOrders] = useState([])
 
    useEffect(() => {
-      fetch('http://localhost:5000/orders')
+      fetch('https://radiant-river-46012.herokuapp.com/orders')
       .then(res => res.json())
       .then(data => setOrders(data))
    }, [orders])
 
    const handleUpdate = id => {
-      fetch(`http://localhost:5000/orders/${id}`, {
+      fetch(`https://radiant-river-46012.herokuapp.com/orders/${id}`, {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json'},
           body: JSON.stringify(orders)
@@ -29,7 +29,7 @@ const ManageOrders = () => {
    const handleDelete = id => {
       const proceed = window.confirm('Are you sure you want to delete')
       if (proceed) {
-         fetch(`http://localhost:5000/orders/deleteOrder/${id}`, {
+         fetch(`https://radiant-river-46012.herokuapp.com/orders/deleteOrder/${id}`, {
             method: 'DELETE'
          })
          .then(res => res.json())

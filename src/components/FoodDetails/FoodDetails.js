@@ -30,7 +30,7 @@ const FoodDetails = () => {
       data.price = price;
       data.email = user.email;
 
-      fetch(`http://localhost:5000/addCartOrder`, {
+      fetch(`https://radiant-river-46012.herokuapp.com/addCartOrder`, {
          method: 'POST',
          headers: { 'Content-Type': 'application/json'},
          body: JSON.stringify(data)

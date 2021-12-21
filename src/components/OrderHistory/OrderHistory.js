@@ -8,7 +8,7 @@ const OrderHistory = () => {
    const [ orders, setOrders ] = useState([]);
 
    useEffect(() => {
-      fetch(`http://localhost:5000/orders`)
+      fetch(`https://radiant-river-46012.herokuapp.com/orders`)
       .then(res => res.json())
       .then(data => setOrders(data))
    }, [user])

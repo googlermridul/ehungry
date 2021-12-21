@@ -1,17 +1,21 @@
-## eHungry - Stay hungry eat food
+## EHungry - Stay Hungry Eat Food
 
 ### Live Link: https://e-hungry.web.app/
 
-### What is eHungry:
-eHungry is a tour package provider website. Here you will find packages to travel anywhere in the country or abroad. eHungry is a trusted and reliable tour and travel agency among all the leading and updated tour-operating services in Bangladesh. We are here to bring the luxury to your traveling.
-
 ### About this prjoect:
+This is a restaurant site. With this you can order the food of your choice online.
 
-* Exclusive ackages to travel anywhere in the country or abroad.
-* People can book their tour package here.
-* They also can cancel their package.
-* Admin can add new tour package.
-* Admin can control people booked packages.
+
+### What user can do:
+* User can order food from here.
+* User just needs to login here.
+* If you do not have an account, you have to create one to order food.
+* You can cancel your ordered food.
+
+### What admin can do:
+* Admin can add new menu.
+* Admin can control booked packages.
+* Admin can make another admin.
 
 ### Languages & Tools:
 #### react, react-router-dom, react-hook-form, react-bootstrap, material-ui, firebase, nodejs, mongodb

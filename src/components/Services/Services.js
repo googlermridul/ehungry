@@ -15,7 +15,7 @@ const Feature = () => {
                         <img src={icon1} alt="" />
                      </div>
                      <h4>ORDER YOUR FOOD</h4>
-                     <p>A range of courses across gardening, <br /> photography and more.</p>
+                     <p>Ehungry is a restaurant site. <br /> With this you can order the food of your choice online.</p>
                   </div>
                </div>
                <div className="col-md-4 my-5 my-md-0">
@@ -24,7 +24,7 @@ const Feature = () => {
                         <img src={icon2} alt="" />
                      </div>
                      <h4>DELIVERY OR PICK UP</h4>
-                     <p>Knowledge discovery that helps you <br /> understand any topic.</p>
+                     <p>Ehungry is a restaurant site. With this <br /> you can order the food of your choice online.</p>
                   </div>
                </div>
                <div className="col-md-4">
@@ -33,7 +33,7 @@ const Feature = () => {
                         <img src={icon3} alt="" />
                      </div>
                      <h4>DELICIOUS RECEIPE</h4>
-                     <p>Experts delivered you the best support <br /> regarding your need.</p>
+                     <p>Ehungry is a restaurant site. With this you can order <br />  the food of your choice online.</p>
                   </div>
                </div>
             </div>
