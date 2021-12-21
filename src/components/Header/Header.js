@@ -5,7 +5,7 @@ import hamburger from '../../images/menu2.png'
 import './Header.scss'
 
 const Header = () => {
-   const { user, logOut } = useAuth()
+   const { user, logOut, admin } = useAuth()
 
    function changeCss () {
       const element = document.getElementById("navigration");
@@ -30,20 +30,25 @@ const Header = () => {
                   <li className="nav-item">
                      <Link className="link" to="/menus">MENU</Link>
                   </li>
-                  <li className="nav-item">
-                     <Link className="link" to="/cart">CART</Link>
-                  </li>
-                  <li className="nav-item">
-                     <Link className="link" to="/orderHistory">ORDER HISTORY</Link>
-                  </li>
                   {
-                     user.email && 
+                     user?.email && 
+                     <>
+                        <li className="nav-item">
+                           <Link className="link" to="/cart">CART</Link>
+                        </li>
+                        <li className="nav-item">
+                           <Link className="link" to="/orderHistory">ORDER HISTORY</Link>
+                        </li>
+                     </>
+                  }
+                  {
+                     admin &&
                      <li className="nav-item">
-                        <span className="link">{user.displayName}</span>
+                        <Link className="link" to="/admin">Dashboard</Link>
                      </li>
                   }
                   {
-                     user.email ?
+                     user?.email ?
                      <li className="nav-item">
                         <button onClick={logOut} className="btn-orange">Logout</button>
                      </li> :
@@ -51,6 +56,9 @@ const Header = () => {
                         <Link className="link" to="/login">login</Link>
                      </li>
                   }
+                  {/* <li className="nav-item">
+                     <span className="link">{user.displayName}</span>
+                  </li> */}
                </ul>
             </div>
          </div>

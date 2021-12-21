@@ -56,7 +56,7 @@ const Register = () => {
                                  {errors.password && <span className="error">password is required</span>}
                               </div>
                            </div>
-                           <button type="submit" className="btn-black">login</button>
+                           <button type="submit" className="btn-black">Register</button>
                         </form>
                         <p className="switcher">Already an user? <Link className="link" to="/login">Login</Link></p>
                      </div>
@@ -70,20 +70,6 @@ const Register = () => {
                </div>
             </div>
          </div>
-         {/* <div className="form-group col-12">
-<input className="form-control"
-   defaultValue=""
-   {...register("email", {
-      required: "required",
-      pattern: {
-         value: /\S+@\S+\.\S+/,
-         message: "Entered value does not match email format"
-      }
-   })}
-   placeholder="Email" />
-{errors.email && <span className="error">email is </span>}
-{errors.email && <span role="alert">{errors.email.message}</span>}
-</div> */}
       </>
    );
 };
