@@ -1,0 +1,18 @@
+.top-header {
+   padding: 17px 0 !important;
+   transition: .3s;
+   z-index: 1031;
+   .logo {
+      font-family: 'Pacifico', cursive;
+      color: #fff;
+      padding-left: 10px;
+      font-weight: normal !important;
+      span {
+         color: #fe9d3e;
+      }
+   }
+   .navbar-toggler {
+      width: 32px;
+      right: 38px;
+    }
+}

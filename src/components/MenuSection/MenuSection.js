@@ -23,7 +23,7 @@ const MenuSection = () => {
                {
                   menus.slice(0, 6).map(menu => <Menu
                      menu={menu}
-                     key={menu.id}></Menu> )
+                     key={menu._id}></Menu> )
                }
             </div>
             <div className="bottom">

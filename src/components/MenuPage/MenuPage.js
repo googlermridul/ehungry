@@ -17,7 +17,7 @@ const MenuPage = () => {
                {
                   menus.map(menu => <Menu
                      menu={menu}
-                     key={menu.id}>
+                     key={menu._id}>
                         <span>buy now</span>
                      </Menu> )
                }

@@ -33,7 +33,7 @@ const Login = () => {
                <div className="row">
                   <div className="col">
                      { error && <p className="failure-alert">{error}</p> }
-                     { user?.email && <p className="success-alert">Account created successfully</p> }
+                     { user?.email && <p className="success-alert">Logged in successfully</p> }
                      <div className="form-box">
                         <h4>login to ehungry</h4>
                         <button onClick={signInWithGoogle} className="btn-black google-btn shadow-sm"><img src={googleIcon} alt="" /> Sign in With Google</button>

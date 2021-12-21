@@ -13,6 +13,7 @@ import AuthProvider from './contexts/AuthProvider';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import Cart from './components/Cart/Cart';
 import OrderHistory from './components/OrderHistory/OrderHistory';
+import Dashboard from './components/AdminPanel/Dashboard/Dashboard';
 
 function App() {
   return (
@@ -43,6 +44,9 @@ function App() {
           </PrivateRoute>
           <PrivateRoute path="/orderHistory">
             <OrderHistory />
+          </PrivateRoute>
+          <PrivateRoute path="/admin">
+            <Dashboard />
           </PrivateRoute>
           <Route path="*">
             <NotFound />

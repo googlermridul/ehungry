@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PageBanner from '../PageBanner/PageBanner';
+import useAuth from '../../hooks/useAuth'
 import './OrderHistory.scss'
 
 const OrderHistory = () => {
+   const { user } = useAuth();
+   const [ orders, setOrders ] = useState([]);
+
+   useEffect(() => {
+      fetch(`http://localhost:5000/orders`)
+      .then(res => res.json())
+      .then(data => setOrders(data))
+   }, [user])
+
    return (
       <>
          <PageBanner>
@@ -24,18 +34,16 @@ const OrderHistory = () => {
                               </tr>
                            </thead>
                            <tbody>
-                              <tr>
-                                 <td>SO21055815</td>
-                                 <td>2021-05-29</td>
-                                 <td>$15.50</td>
-                                 <td>Delivered</td>
-                              </tr>
-                              <tr>
-                                 <td>SO21055815</td>
-                                 <td>2021-05-29</td>
-                                 <td>$15.50</td>
-                                 <td>Delivered</td>
-                              </tr>
+                              {
+                                 orders.map(order => (
+                                    <tr key={order._id}>
+                                       <td>{order._id}</td>
+                                       <td>{order.date}</td>
+                                       <td>${order.price}</td>
+                                       <td>{order.status}</td>
+                                    </tr>
+                                 ))
+                              }
                            </tbody>
                         </table>
                      </div>

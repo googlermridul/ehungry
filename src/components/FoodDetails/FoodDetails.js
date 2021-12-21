@@ -4,18 +4,20 @@ import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import useMenus from '../../hooks/useMenus';
 import PageBanner from '../PageBanner/PageBanner';
+import useAuth from '../../hooks/useAuth'
 import './FoodDetails.scss'
 
 const FoodDetails = () => {
    const [menus] = useMenus();
    const [details, setDetails] = useState({});
    const [count, setCount] = useState(1);
-   const { register, handleSubmit, formState: { errors } } = useForm();
-   const {menuId} = useParams();
+   const { register, handleSubmit, reset, formState: { errors } } = useForm();
+   const { menuId } = useParams();
+   const { user } = useAuth();
 
    useEffect(() => {
       if (menus.length) {
-         const matchedData = menus.find(menu => menu.id == menuId);
+         const matchedData = menus.find(menu => menu._id === menuId);
          setDetails(matchedData);
       }
    }, [menus])
@@ -23,6 +25,23 @@ const FoodDetails = () => {
    const {image, name, description, price} = details;
 
    const onSubmit = data => {
+      data.image = image;
+      data.menu = name;
+      data.price = price;
+      data.email = user.email;
+
+      fetch(`http://localhost:5000/addCartOrder`, {
+         method: 'POST',
+         headers: { 'Content-Type': 'application/json'},
+         body: JSON.stringify(data)
+      })
+      .then(res => res.json())
+      .then(result => {
+         if (result.insertedId) {
+            alert('Added to cart')
+            reset()
+         }
+      })
       console.log(data);
    };
 
@@ -72,9 +91,8 @@ const FoodDetails = () => {
                               </div>
                            </div>
                         </div>
-                        <Link to="/cart">
-                           <button type="submit" className="btn-black">Add to cart</button>
-                        </Link>
+                        <Link to="/cart">Cart</Link><br />
+                        <button type="submit" className="btn-black">Add to cart</button>
                      </form>
                   </div>
                </div>

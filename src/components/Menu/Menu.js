@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import './Menu.scss'
 
 const Menu = (props) => {
-   const {id, image, name, description, price} = props.menu;
+   const {_id, image, name, description, price} = props.menu;
    const history = useHistory();
 
    const handleDetails = (id) => {
@@ -13,7 +13,7 @@ const Menu = (props) => {
    
    return (
       <div className="col-sm-6 col-lg-4">
-         <div onClick={() => handleDetails(id)} className="menu-box">
+         <div onClick={() => handleDetails(_id)} className="menu-box">
             <div className="img-box">
                <img className="img-fluid" src={image} alt="" />
             </div>

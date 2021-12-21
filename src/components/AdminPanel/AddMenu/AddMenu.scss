@@ -1,0 +1,29 @@
+.add-menu {
+   margin-top: 25px;
+   .form-box {
+      // max-width: 500px;
+      h4 {
+         text-transform: uppercase;
+         margin-bottom: 15px;
+      }
+      .form-group {
+         margin-bottom: 15px;
+         .form-control {
+            border-radius: 0px;
+            color: #666;
+            height: 50px;
+            border: 1px solid #e5e5e5;
+            &:focus {
+               box-shadow: 0 0rem 0rem rgba(0,0,0,.15)!important;
+               border: 1px solid #121619;
+            }
+         }
+         .date {
+            color: #666;
+         }
+         .text-area {
+            height: 150px;
+         }
+      }
+   }
+}

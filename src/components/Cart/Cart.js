@@ -1,16 +1,77 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PageBanner from '../PageBanner/PageBanner';
-import food from '../../images/menu/menu-4.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
-import './Cart.scss'
 import { useForm } from 'react-hook-form';
+import useAuth from '../../hooks/useAuth'
+import './Cart.scss'
 
 const Cart = () => {
-   const { register, handleSubmit, formState: { errors } } = useForm();
+   const { user } = useAuth();
+   const { register, handleSubmit, reset, formState: { errors } } = useForm();
+   const [ cartOrders, setCartOrders ] = useState([]);
+   const [ totalQuantity, setTotalQuantity ] = useState('');
+   const [ subTotal, setSubTotal ] = useState('');
+   const [ tax, setTax ] = useState('');
+
+   useEffect(() => {
+      fetch(`http://localhost:5000/cartOrders/${user.email}`)
+      .then(res => res.json())
+      .then(data => setCartOrders(data))
+   }, [user])
+
+   useEffect(() => {
+      if (cartOrders.length) {
+         const price = cartOrders.reduce((prev, order) => prev + parseInt(order.price) * parseInt(order.quantity), 0);
+         const quantity = cartOrders.reduce((prev, order) => prev + parseInt(order.quantity), 0);
+         const tax = price * .07;
+         setSubTotal(price);
+         setTotalQuantity(quantity);
+         setTax(Math.round(tax));
+      }
+   }, [cartOrders])
+
+   const handleDelete = id => {
+      const proceed = window.confirm('Are you sure you want to delete')
+      if (proceed) {
+         fetch(`http://localhost:5000/deleteCartOrder/${id}`, {
+            method: 'DELETE'
+         })
+         .then(res => res.json())
+         .then(data => {
+            if (data.deletedCount) {
+               const remaining = cartOrders.filter(order => order._id !== id)
+               setCartOrders(remaining)
+            }
+         })
+      }
+   }
+
    const onSubmit = data => {
+      data.status = "Pending"
+      data.date = new Date().toDateString();
+      data.price = subTotal + tax;
+      data.quantity = totalQuantity;
+
+      fetch(`http://localhost:5000/addOrder`, {
+         method: 'POST',
+         headers: { 'Content-Type': 'application/json'},
+         body: JSON.stringify(data)
+      })
+      .then(res => res.json())
+      .then(result => {
+         if (result.insertedId) {
+            alert('Ordered successfully')
+            reset()
+            setCartOrders([])
+            setSubTotal(0);
+            setTotalQuantity(0);
+            setTax(0);
+         }
+      })
       console.log(data);
    };
+
 
    return (
       <>
@@ -26,8 +87,8 @@ const Cart = () => {
                         <table className="table mb-0">
                            <thead>
                               <tr>
-                                 <th scope="col">Product</th>
-                                 <th scope="col">Product Name</th>
+                                 <th scope="col">Item</th>
+                                 <th scope="col">Item name</th>
                                  <th scope="col">Price</th>
                                  <th scope="col">Quantity</th>
                                  <th scope="col">Sub Total</th>
@@ -35,34 +96,32 @@ const Cart = () => {
                               </tr>
                            </thead>
                            <tbody>
-                              <tr>
-                                 <td>
-                                    <img className="img-fluid" src={food} alt="" />
-                                 </td>
-                                 <td><p>margherita pizza</p></td>
-                                 <td><p>$15.50</p></td>
-                                 <td><p>2</p></td>
-                                 <td><p>$15.50</p></td>
-                                 <td>
-                                    <p><button className="btn-black delete">
-                                       <FontAwesomeIcon icon={faTrashAlt} className="fa-icon" />
-                                    </button></p>
-                                 </td>
-                              </tr>
-                              <tr>
-                                 <td>
-                                    <img className="img-fluid" src={food} alt="" />
-                                 </td>
-                                 <td><p>margherita pizza</p></td>
-                                 <td><p>$15.50</p></td>
-                                 <td><p>2</p></td>
-                                 <td><p>$15.50</p></td>
-                                 <td>
-                                    <p><button className="btn-black delete">
-                                       <FontAwesomeIcon icon={faTrashAlt} className="fa-icon" />
-                                    </button></p>
-                                 </td>
-                              </tr>
+                              {
+                                 cartOrders.map(order => (
+                                    <tr key={order._id}>
+                                       <td>
+                                          <img className="img-fluid" src={order.image} alt="" />
+                                       </td>
+                                       <td><p>{order.menu}</p></td>
+                                       <td><p>${order.price}</p></td>
+                                       <td><p>{order.quantity}</p></td>
+                                       <td><p>${order.price * order.quantity}</p></td>
+                                       <td>
+                                          <p><button onClick={() => handleDelete(order._id)} className="btn-black delete">
+                                             <FontAwesomeIcon icon={faTrashAlt} className="fa-icon" />
+                                          </button></p>
+                                       </td>
+                                    </tr>
+                                 ))
+                              }
+                              {
+                                 cartOrders.length === 0 && 
+                                    <tr>
+                                       <td colSpan="6">
+                                          <p>Your cart is empty!</p>
+                                       </td>
+                                    </tr>
+                              }
                            </tbody>
                         </table>
                      </div>
@@ -76,31 +135,31 @@ const Cart = () => {
                               <h4>BILLING DETAILS</h4>
                               <div className="row">
                                  <div className="form-group col-12">
-                                    <input className="form-control" defaultValue="" {...register("name", { required: true })} placeholder="Name" />
+                                    <input className="form-control" defaultValue={user?.displayName} {...register("name", { required: true })} type="text" placeholder="Name" />
                                     {errors.name && <span className="error">name is required</span>}
                                  </div>
                                  <div className="form-group col-12">
-                                    <input className="form-control" defaultValue="" {...register("email", { required: true })} placeholder="Email" />
+                                    <input className="form-control" defaultValue={user?.email} {...register("email", { required: true })} type="email" placeholder="Email" />
                                     {errors.email && <span className="error">email is required</span>}
                                  </div>
                                  <div className="form-group col-12">
-                                    <input className="form-control" defaultValue="" {...register("phone", { required: true })} placeholder="Phone" />
+                                    <input className="form-control" defaultValue="" {...register("phone", { required: true })} type="number" placeholder="Phone" />
                                     {errors.phone && <span className="error">phone is required</span>}
                                  </div>
                                  <div className="form-group col-12">
-                                    <input className="form-control" defaultValue="" {...register("country", { required: true })} placeholder="Country" />
+                                    <input className="form-control" defaultValue="" {...register("country", { required: true })} type="text" placeholder="Country" />
                                     {errors.country && <span className="error">country is required</span>}
                                  </div>
                                  <div className="form-group col-12">
-                                    <input className="form-control" defaultValue="" {...register("city", { required: true })} placeholder="City" />
+                                    <input className="form-control" defaultValue="" {...register("city", { required: true })} type="text" placeholder="City" />
                                     {errors.city && <span className="error">city is required</span>}
                                  </div>
                                  <div className="form-group col-12">
-                                    <input className="form-control" defaultValue="" {...register("zipcode", { required: true })} placeholder="Zip Code" />
+                                    <input className="form-control" defaultValue="" {...register("zipcode", { required: true })} type="number" placeholder="Zip Code" />
                                     {errors.zipcode && <span className="error">zipcode is required</span>}
                                  </div>
                                  <div className="form-group col-12 mb-0">
-                                    <input className="form-control" defaultValue="" {...register("address", { required: true })} placeholder="Street address" />
+                                    <input className="form-control" defaultValue="" {...register("address", { required: true })} type="text" placeholder="Street address" />
                                     {errors.address && <span className="error">address is required</span>}
                                  </div>
                               </div>
@@ -109,10 +168,10 @@ const Cart = () => {
                               <div className="order-box">
                                  <h4>your order</h4>
                                  <div className="list">
-                                    <p>Total Item <span> 4</span></p>
-                                    <p>Item(s) Subtotal <span>	$71.00</span></p>
-                                    <p>Shipping <span> $0</span></p>
-                                    <p>Amount Payable <span> $71.00</span></p>
+                                    <p>Total Item <span> {totalQuantity}</span></p>
+                                    <p>Item(s) Subtotal <span>	${subTotal}</span></p>
+                                    <p>Tax(7%) <span> ${tax}</span></p>
+                                    <p>Amount Payable <span> ${subTotal + tax}</span></p>
                                  </div>
                                  <button type="submit" className="btn-black">Place order</button>
                               </div>

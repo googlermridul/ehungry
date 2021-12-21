@@ -1,0 +1,44 @@
+.sidebar {
+   position: fixed;
+   top: 80px;
+   bottom: 0;
+   left: 0;
+   z-index: 100;
+   box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0);
+   background: #f7f7f8;
+   border-right: 1px solid #e5e5e5;
+}
+
+.sidebar-sticky {
+   position: relative;
+   top: 0;
+   height: calc(100vh - 48px);
+   padding-top: .5rem;
+   overflow-x: hidden;
+   overflow-y: auto;
+}
+
+.sidebar .nav {
+   padding-top: 15px;
+   text-align: left;
+}
+.sidebar .nav-item {
+   margin-bottom: 15px;
+}
+
+.sidebar .nav-item .fa-icon {
+   color: #121619 !important;
+   width: 20px;
+   margin-right: 8px;
+}
+
+.sidebar .link {
+   font-weight: 500;
+   color: #121619;
+}
+
+
+.main {
+   height: 92vh;
+   background: #fff;
+}
