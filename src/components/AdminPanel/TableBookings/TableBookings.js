@@ -1,19 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
-import './TableBookings.scss'
 
 const TableBookings = () => {
    const [bookings, setBookings] = useState([])
 
    useEffect(() => {
-      fetch('http://localhost:5000/bookings')
+      fetch('https://gentle-gorge-16507.herokuapp.com/bookings')
       .then(res => res.json())
       .then(data => setBookings(data))
    }, [bookings])
 
    const handleUpdate = id => {
-      fetch(`http://localhost:5000/bookings/${id}`, {
+      fetch(`https://gentle-gorge-16507.herokuapp.com/bookings/${id}`, {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json'},
           body: JSON.stringify(bookings)
@@ -29,7 +28,7 @@ const TableBookings = () => {
    const handleDelete = id => {
       const proceed = window.confirm('Are you sure you want to delete')
       if (proceed) {
-         fetch(`http://localhost:5000/deleteBooking/${id}`, {
+         fetch(`https://gentle-gorge-16507.herokuapp.com/deleteBooking/${id}`, {
             method: 'DELETE'
          })
          .then(res => res.json())

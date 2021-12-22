@@ -9,13 +9,13 @@ const OrderHistory = () => {
    const [ bookings, setBookings ] = useState([]);
 
    useEffect(() => {
-      fetch(`http://localhost:5000/orders/${user.email}`)
+      fetch(`https://gentle-gorge-16507.herokuapp.com/orders/${user.email}`)
       .then(res => res.json())
       .then(data => setOrders(data))
    }, [user])
 
    useEffect(() => {
-      fetch(`http://localhost:5000/bookings/${user.email}`)
+      fetch(`https://gentle-gorge-16507.herokuapp.com/bookings/${user.email}`)
       .then(res => res.json())
       .then(data => setBookings(data))
    }, [user])

@@ -6,7 +6,7 @@ const AddMenu = () => {
    const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
    const onSubmit = data => {
-      fetch(`http://localhost:5000/addMenu`, {
+      fetch(`https://gentle-gorge-16507.herokuapp.com/addMenu`, {
          method: 'POST',
          headers: { 'Content-Type': 'application/json'},
          body: JSON.stringify(data)

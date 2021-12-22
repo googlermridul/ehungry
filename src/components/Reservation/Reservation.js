@@ -9,7 +9,7 @@ const Reservation = () => {
    const onSubmit = data => {
       data.status = "Pending"
 
-      fetch(`http://localhost:5000/addBooking`, {
+      fetch(`https://gentle-gorge-16507.herokuapp.com/addBooking`, {
          method: 'POST',
          headers: { 'Content-Type': 'application/json'},
          body: JSON.stringify(data)

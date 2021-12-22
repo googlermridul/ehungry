@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 const useMenus = () => {
    const [menus, setMenus] = useState([]);
    useEffect(() => {
-      fetch('http://localhost:5000/menus')
+      fetch('https://gentle-gorge-16507.herokuapp.com/menus')
       .then(res => res.json())
       .then(data => setMenus(data))
    }, [])

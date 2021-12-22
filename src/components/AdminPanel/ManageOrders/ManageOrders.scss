@@ -50,10 +50,10 @@
                border-radius: 0;
                font-weight: normal;
             }
-            .action.delivered {
-               background: #f7f7f8;
-               border: 1px solid #f7f7f8;
-               color: #666;
+            .delivered {
+               background: #f7f7f8 !important;
+               border: 1px solid #f7f7f8 !important;
+               color: #666 !important;
             }
          }
       }

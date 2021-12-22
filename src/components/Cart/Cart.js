@@ -15,7 +15,7 @@ const Cart = () => {
    const [ tax, setTax ] = useState(0);
 
    useEffect(() => {
-      fetch(`http://localhost:5000/cartOrders/${user.email}`)
+      fetch(`https://gentle-gorge-16507.herokuapp.com/cartOrders/${user.email}`)
       .then(res => res.json())
       .then(data => setCartOrders(data))
    }, [user])
@@ -34,7 +34,7 @@ const Cart = () => {
    const handleDelete = id => {
       const proceed = window.confirm('Are you sure you want to delete')
       if (proceed) {
-         fetch(`http://localhost:5000/deleteCartOrder/${id}`, {
+         fetch(`https://gentle-gorge-16507.herokuapp.com/deleteCartOrder/${id}`, {
             method: 'DELETE'
          })
          .then(res => res.json())
@@ -48,7 +48,7 @@ const Cart = () => {
    }
 
    const handleDeleteAll = (email) => {
-      fetch(`http://localhost:5000/deleteAllCartOrder/${email}`, {
+      fetch(`https://gentle-gorge-16507.herokuapp.com/deleteAllCartOrder/${email}`, {
          method: 'DELETE'
       })
       .then(res => res.json())
@@ -67,7 +67,7 @@ const Cart = () => {
       data.price = subTotal + tax;
       data.quantity = totalQuantity;
 
-      fetch(`http://localhost:5000/addOrder`, {
+      fetch(`https://gentle-gorge-16507.herokuapp.com/addOrder`, {
          method: 'POST',
          headers: { 'Content-Type': 'application/json'},
          body: JSON.stringify(data)

@@ -6,7 +6,7 @@ const ManageUsers = () => {
    const [users, setUsers] = useState([])
 
    useEffect(() => {
-      fetch('http://localhost:5000/users')
+      fetch('https://gentle-gorge-16507.herokuapp.com/users')
       .then(res => res.json())
       .then(data => setUsers(data))
    }, [])
@@ -14,7 +14,7 @@ const ManageUsers = () => {
    const handleDelete = id => {
       const proceed = window.confirm('Are you sure you want to delete')
       if (proceed) {
-         fetch(`http://localhost:5000/deleteUser/${id}`, {
+         fetch(`https://gentle-gorge-16507.herokuapp.com/deleteUser/${id}`, {
             method: 'DELETE'
          })
          .then(res => res.json())
@@ -26,8 +26,6 @@ const ManageUsers = () => {
          })
       }
    }
-
-   console.log(users);
 
    return (
       <div className="manage-menus manage-orders">
