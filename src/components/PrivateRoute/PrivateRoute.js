@@ -6,7 +6,7 @@ const PrivateRoute = ({children, ...rest}) => {
    const { user, isLoading } = useAuth()
    if (isLoading) {
       return (
-         <div className="text-center pre-loader">
+         <div className="text-center home-pre-loader">
             <div className="spinner-border" role="status"></div>
          </div>
       )

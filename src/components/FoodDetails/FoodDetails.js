@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import useMenus from '../../hooks/useMenus';
 import PageBanner from '../PageBanner/PageBanner';
 import useAuth from '../../hooks/useAuth'
 import './FoodDetails.scss'
 
 const FoodDetails = () => {
-   const [menus] = useMenus();
-   const [details, setDetails] = useState({});
-   const [count, setCount] = useState(1);
+   const [ menus ] = useMenus();
+   const history = useHistory();
+   const [ details, setDetails ] = useState({});
+   const [ count, setCount ] = useState(1);
    const { register, handleSubmit, reset, formState: { errors } } = useForm();
    const { menuId } = useParams();
    const { user } = useAuth();
@@ -30,7 +30,7 @@ const FoodDetails = () => {
       data.price = price;
       data.email = user.email;
 
-      fetch(`https://radiant-river-46012.herokuapp.com/addCartOrder`, {
+      fetch(`http://localhost:5000/addCartOrder`, {
          method: 'POST',
          headers: { 'Content-Type': 'application/json'},
          body: JSON.stringify(data)
@@ -38,11 +38,10 @@ const FoodDetails = () => {
       .then(res => res.json())
       .then(result => {
          if (result.insertedId) {
-            alert('Added to cart')
+            history.push("/cart")
             reset()
          }
       })
-      console.log(data);
    };
 
    return (
@@ -91,7 +90,6 @@ const FoodDetails = () => {
                               </div>
                            </div>
                         </div>
-                        <Link to="/cart">Cart</Link><br />
                         <button type="submit" className="btn-black">Add to cart</button>
                      </form>
                   </div>

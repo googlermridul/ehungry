@@ -1,48 +1,33 @@
 import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
-import './ManageOrders.scss'
 
-const ManageOrders = () => {
-   const [orders, setOrders] = useState([])
+const ManageUsers = () => {
+   const [users, setUsers] = useState([])
 
    useEffect(() => {
-      fetch('http://localhost:5000/orders')
+      fetch('http://localhost:5000/users')
       .then(res => res.json())
-      .then(data => setOrders(data))
+      .then(data => setUsers(data))
    }, [])
-
-   const handleUpdate = id => {
-      fetch(`http://localhost:5000/orders/${id}`, {
-          method: 'PUT',
-          headers: { 'Content-Type': 'application/json'},
-          body: JSON.stringify(orders)
-      })
-      .then(res => res.json())
-      .then(data => {
-          if (data.modifiedCount > 0) {
-              alert('Approved successfully')
-          }
-      })
-   }
 
    const handleDelete = id => {
       const proceed = window.confirm('Are you sure you want to delete')
       if (proceed) {
-         fetch(`http://localhost:5000/deleteOrder/${id}`, {
+         fetch(`http://localhost:5000/deleteUser/${id}`, {
             method: 'DELETE'
          })
          .then(res => res.json())
          .then(data => {
             if (data.deletedCount) {
-               const remaining = orders.filter(menu => menu._id !== id)
-               setOrders(remaining)
+               const remaining = users.filter(menu => menu._id !== id)
+               setUsers(remaining)
             }
          })
       }
    }
 
-   console.log(orders);
+   console.log(users);
 
    return (
       <div className="manage-menus manage-orders">
@@ -50,35 +35,29 @@ const ManageOrders = () => {
             <div className="row">
                <div className="col">
                   <div className="menu-table">
-                     <h4>manage food orders</h4>
+                     <h4>manage all users</h4>
                      <table className="table mb-0">
                         <thead>
                            <tr>
                               <th scope="col">Name</th>
-                              <th scope="col">Order Date</th>
-                              <th scope="col">Quantity</th>
-                              <th scope="col">Amount</th>
-                              <th scope="col">Status</th>
+                              <th scope="col">Email</th>
+                              <th scope="col">Role</th>
                               <th scope="col">Action</th>
                            </tr>
                         </thead>
                         <tbody>
                            {
-                              orders.map(order => (
-                                 <tr key={order._id}>
-                                    <td><p>{order.name}</p></td>
-                                    <td><p>{order.date}</p></td>
-                                    <td><p>{order.quantity}</p></td>
-                                    <td><p>${order.price}</p></td>
+                              users.map(user => (
+                                 <tr key={user._id}>
+                                    <td><p>{user.displayName}</p></td>
+                                    <td><p>{user.email}</p></td>
                                     <td><p>
                                        {
-                                          order.status === 'Pending' ?
-                                          <button onClick={() => handleUpdate(order._id)} className="btn-black action">Make Delivery</button> :
-                                          <button className="btn-black action delivered" disabled>Delivered</button>
+                                          user.role === undefined ? "User" : "Admin"
                                        }
                                     </p></td>
                                     <td>
-                                       <p><button onClick={() => handleDelete(order._id)}  className="btn-black delete">
+                                       <p><button onClick={() => handleDelete(user._id)}  className="btn-black delete">
                                           <FontAwesomeIcon icon={faTrashAlt} className="fa-icon" />
                                        </button></p>
                                     </td>
@@ -86,10 +65,10 @@ const ManageOrders = () => {
                               ))
                            }
                            {
-                              orders.length === 0 && 
+                              users.length === 0 && 
                                  <tr>
                                     <td colSpan="6">
-                                       <p className="mb-0">No orders yet!</p>
+                                       <p className="mb-0">No user found!</p>
                                     </td>
                                  </tr>
                            }
@@ -103,4 +82,4 @@ const ManageOrders = () => {
    );
 };
 
-export default ManageOrders;
+export default ManageUsers;

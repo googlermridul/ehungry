@@ -105,7 +105,7 @@ const useFirebase = () => {
    // save user to database
    const saveUser = (email, displayName, method) => {
       const user = { email, displayName };
-      fetch('https://radiant-river-46012.herokuapp.com/addUser', {
+      fetch('http://localhost:5000/addUser', {
           method: method,
           headers: {
               'content-type': 'application/json'
@@ -116,7 +116,7 @@ const useFirebase = () => {
    }
 
    useEffect(() => {
-      fetch(`https://radiant-river-46012.herokuapp.com/users/${user.email}`)
+      fetch(`http://localhost:5000/users/${user.email}`)
       .then(res => res.json())
       .then(data => setAdmin(data.admin))
    }, [user.email])

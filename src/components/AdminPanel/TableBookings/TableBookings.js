@@ -1,22 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
-import './ManageOrders.scss'
+import './TableBookings.scss'
 
-const ManageOrders = () => {
-   const [orders, setOrders] = useState([])
+const TableBookings = () => {
+   const [bookings, setBookings] = useState([])
 
    useEffect(() => {
-      fetch('http://localhost:5000/orders')
+      fetch('http://localhost:5000/bookings')
       .then(res => res.json())
-      .then(data => setOrders(data))
-   }, [])
+      .then(data => setBookings(data))
+   }, [bookings])
 
    const handleUpdate = id => {
-      fetch(`http://localhost:5000/orders/${id}`, {
+      fetch(`http://localhost:5000/bookings/${id}`, {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json'},
-          body: JSON.stringify(orders)
+          body: JSON.stringify(bookings)
       })
       .then(res => res.json())
       .then(data => {
@@ -29,20 +29,18 @@ const ManageOrders = () => {
    const handleDelete = id => {
       const proceed = window.confirm('Are you sure you want to delete')
       if (proceed) {
-         fetch(`http://localhost:5000/deleteOrder/${id}`, {
+         fetch(`http://localhost:5000/deleteBooking/${id}`, {
             method: 'DELETE'
          })
          .then(res => res.json())
          .then(data => {
             if (data.deletedCount) {
-               const remaining = orders.filter(menu => menu._id !== id)
-               setOrders(remaining)
+               const remaining = bookings.filter(menu => menu._id !== id)
+               setBookings(remaining)
             }
          })
       }
    }
-
-   console.log(orders);
 
    return (
       <div className="manage-menus manage-orders">
@@ -50,31 +48,31 @@ const ManageOrders = () => {
             <div className="row">
                <div className="col">
                   <div className="menu-table">
-                     <h4>manage food orders</h4>
+                     <h4>manage table bookings</h4>
                      <table className="table mb-0">
                         <thead>
                            <tr>
                               <th scope="col">Name</th>
+                              <th scope="col">Phone</th>
                               <th scope="col">Order Date</th>
-                              <th scope="col">Quantity</th>
-                              <th scope="col">Amount</th>
+                              <th scope="col">Person</th>
                               <th scope="col">Status</th>
                               <th scope="col">Action</th>
                            </tr>
                         </thead>
                         <tbody>
                            {
-                              orders.map(order => (
+                              bookings.map(order => (
                                  <tr key={order._id}>
                                     <td><p>{order.name}</p></td>
+                                    <td><p>{order.phone}</p></td>
                                     <td><p>{order.date}</p></td>
-                                    <td><p>{order.quantity}</p></td>
-                                    <td><p>${order.price}</p></td>
+                                    <td><p>{order.person}</p></td>
                                     <td><p>
                                        {
                                           order.status === 'Pending' ?
-                                          <button onClick={() => handleUpdate(order._id)} className="btn-black action">Make Delivery</button> :
-                                          <button className="btn-black action delivered" disabled>Delivered</button>
+                                          <button onClick={() => handleUpdate(order._id)} className="btn-black action">Approve</button> :
+                                          <button className="btn-black action delivered" disabled>Approved</button>
                                        }
                                     </p></td>
                                     <td>
@@ -86,10 +84,10 @@ const ManageOrders = () => {
                               ))
                            }
                            {
-                              orders.length === 0 && 
+                              bookings.length === 0 && 
                                  <tr>
                                     <td colSpan="6">
-                                       <p className="mb-0">No orders yet!</p>
+                                       <p className="mb-0">No bookings yet!</p>
                                     </td>
                                  </tr>
                            }
@@ -103,4 +101,4 @@ const ManageOrders = () => {
    );
 };
 
-export default ManageOrders;
+export default TableBookings;

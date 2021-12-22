@@ -4,9 +4,23 @@ import phone from '../../images/phone-call.png'
 import './Reservation.scss'
 
 const Reservation = () => {
-   const { register, handleSubmit, formState: { errors } } = useForm();
+   const { register, handleSubmit, reset, formState: { errors } } = useForm();
    
    const onSubmit = data => {
+      data.status = "Pending"
+
+      fetch(`http://localhost:5000/addBooking`, {
+         method: 'POST',
+         headers: { 'Content-Type': 'application/json'},
+         body: JSON.stringify(data)
+      })
+      .then(res => res.json())
+      .then(result => {
+         if (result.insertedId) {
+            alert('Table booked successfully')
+            reset();
+         }
+      })
       console.log(data);
    };
 

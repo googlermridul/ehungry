@@ -10,6 +10,8 @@ import AddMenu from '../AddMenu/AddMenu';
 import ManageMenus from '../ManageMenus/ManageMenus';
 import ManageOrders from '../ManageOrders/ManageOrders';
 import MakeAdmin from '../MakeAdmin/MakeAdmin';
+import TableBookings from '../TableBookings/TableBookings';
+import ManageUsers from '../ManageUsers/ManageUsers';
 
 const Dashboard = () => {
    const { path, url } = useRouteMatch();
@@ -41,6 +43,16 @@ const Dashboard = () => {
                            </Link>
                         </li>
                         <li className="nav-item">
+                           <Link className="link" to={`${url}/tableBookings`}>
+                              <FontAwesomeIcon className="fa-icon" icon={faThLarge} /> Manage Table Bookings
+                           </Link>
+                        </li>
+                        <li className="nav-item">
+                           <Link className="link" to={`${url}/manageUsers`}>
+                              <FontAwesomeIcon className="fa-icon" icon={faThLarge} /> Manage Users
+                           </Link>
+                        </li>
+                        <li className="nav-item">
                            <Link className="link" to={`${url}/makeAdmin`}>
                               <FontAwesomeIcon className="fa-icon" icon={faThLarge} /> Make Admin
                            </Link>
@@ -67,6 +79,12 @@ const Dashboard = () => {
                      </Route>
                      <Route path={`${path}/manageOrders`}>
                         <ManageOrders />
+                     </Route>
+                     <Route path={`${path}/tableBookings`}>
+                        <TableBookings />
+                     </Route>
+                     <Route path={`${path}/manageUsers`}>
+                        <ManageUsers />
                      </Route>
                      <Route path={`${path}/makeAdmin`}>
                         <MakeAdmin />

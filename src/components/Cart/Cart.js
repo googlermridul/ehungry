@@ -10,12 +10,12 @@ const Cart = () => {
    const { user } = useAuth();
    const { register, handleSubmit, reset, formState: { errors } } = useForm();
    const [ cartOrders, setCartOrders ] = useState([]);
-   const [ totalQuantity, setTotalQuantity ] = useState('');
-   const [ subTotal, setSubTotal ] = useState('');
-   const [ tax, setTax ] = useState('');
+   const [ totalQuantity, setTotalQuantity ] = useState(0);
+   const [ subTotal, setSubTotal ] = useState(0);
+   const [ tax, setTax ] = useState(0);
 
    useEffect(() => {
-      fetch(`https://radiant-river-46012.herokuapp.com/cartOrders/${user.email}`)
+      fetch(`http://localhost:5000/cartOrders/${user.email}`)
       .then(res => res.json())
       .then(data => setCartOrders(data))
    }, [user])
@@ -34,7 +34,7 @@ const Cart = () => {
    const handleDelete = id => {
       const proceed = window.confirm('Are you sure you want to delete')
       if (proceed) {
-         fetch(`https://radiant-river-46012.herokuapp.com/deleteCartOrder/${id}`, {
+         fetch(`http://localhost:5000/deleteCartOrder/${id}`, {
             method: 'DELETE'
          })
          .then(res => res.json())
@@ -47,13 +47,27 @@ const Cart = () => {
       }
    }
 
+   const handleDeleteAll = (email) => {
+      fetch(`http://localhost:5000/deleteAllCartOrder/${email}`, {
+         method: 'DELETE'
+      })
+      .then(res => res.json())
+      .then(data => {
+         if (data.deletedCount) {
+            const remaining = cartOrders.filter(order => order.email !== email)
+            setCartOrders(remaining)
+         }
+      })
+      console.log(email);
+   }
+
    const onSubmit = data => {
       data.status = "Pending"
       data.date = new Date().toDateString();
       data.price = subTotal + tax;
       data.quantity = totalQuantity;
 
-      fetch(`https://radiant-river-46012.herokuapp.com/addOrder`, {
+      fetch(`http://localhost:5000/addOrder`, {
          method: 'POST',
          headers: { 'Content-Type': 'application/json'},
          body: JSON.stringify(data)
@@ -67,6 +81,7 @@ const Cart = () => {
             setSubTotal(0);
             setTotalQuantity(0);
             setTax(0);
+            handleDeleteAll(user.email)
          }
       })
       console.log(data);

@@ -45,6 +45,17 @@ h5 {
   }
 }
 
+.home-pre-loader {
+  position: relative;
+  background-color: #fff;
+  height: 100vh;
+  z-index: 1031;
+  .spinner-border {
+    position: absolute;
+    top: 50%;
+  }
+}
+
 .spinner-border {
   margin: auto;
   border: 0.25em solid #121619 !important;

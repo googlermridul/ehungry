@@ -30,9 +30,9 @@ function App() {
           <Route path="/menus">
             <MenuPage />
           </Route>
-          <Route path="/menu/:menuId">
+          <PrivateRoute path="/menu/:menuId">
             <FoodDetails />
-          </Route>
+          </PrivateRoute>
           <Route path="/login">
             <Login />
           </Route>

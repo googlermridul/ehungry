@@ -2,6 +2,8 @@
 
 ### Live Link: https://e-hungry.web.app/
 
+#### admin email: admin@admin.com, pass: 123456 
+
 ### About this prjoect:
 This is a restaurant site. With this you can order the food of your choice online.
 
