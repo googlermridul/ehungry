@@ -1,110 +1,145 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
 }
 body {
-  font-family: 'Pacifico', cursive;
-  font-family: 'PT Sans Narrow', sans-serif !important;
-  // font-size: 14px !important;
-  color: #121619 !important;
+   font-family: "Pacifico", cursive;
+   font-family: "PT Sans Narrow", sans-serif !important;
+   // font-size: 14px !important;
+   color: #121619 !important;
 }
 
 h1 {
-  font-size: 64px !important;
-  font-weight: 700 !important;
-  font-family: 'PT Sans Narrow', sans-serif;
+   font-size: 64px !important;
+   font-weight: 700 !important;
+   font-family: "PT Sans Narrow", sans-serif;
 }
 h2 {
-  font-size: 48px !important;
-  font-weight: 700 !important;
-  font-family: 'PT Sans Narrow', sans-serif;
+   font-size: 48px !important;
+   font-weight: 700 !important;
+   font-family: "PT Sans Narrow", sans-serif;
 }
 h3 {
-  font-size: 32px !important;
-  font-weight: 600 !important;
-  font-family: 'PT Sans Narrow', sans-serif;
+   font-size: 32px !important;
+   font-weight: 600 !important;
+   font-family: "PT Sans Narrow", sans-serif;
 }
 h4 {
-  font-size: 24px !important;
-  font-weight: 600 !important;
-  font-family: 'PT Sans Narrow', sans-serif;
+   font-size: 24px !important;
+   font-weight: 600 !important;
+   font-family: "PT Sans Narrow", sans-serif;
 }
 h5 {
-  font-size: 18px !important;
-  font-weight: 600 !important;
-  font-family: 'PT Sans Narrow', sans-serif;
+   font-size: 18px !important;
+   font-weight: 600 !important;
+   font-family: "PT Sans Narrow", sans-serif;
 }
 
 .link {
-  text-decoration: none;
-  color: #121619;
-  transition: .4s;
-  &:hover {
-    color: #fe9d3e;
-  }
+   text-decoration: none;
+   color: #121619;
+   transition: 0.4s;
+   &:hover {
+      color: #fe9d3e;
+   }
+}
+
+.error {
+   color: #ff4131;
+   font-size: 14px;
+   margin-left: 2px;
+   text-transform: capitalize;
 }
 
 .home-pre-loader {
-  position: relative;
-  background-color: #fff;
-  height: 100vh;
-  z-index: 1031;
-  .spinner-border {
-    position: absolute;
-    top: 50%;
-  }
+   position: relative;
+   background-color: #fff;
+   height: 100vh;
+   z-index: 1031;
+   .spinner-border {
+      position: absolute;
+      top: 50%;
+   }
+   .d-flex {
+      height: 100%;
+   }
 }
 
 .spinner-border {
-  margin: auto;
-  border: 0.25em solid #121619 !important;
-  border-right-color: transparent !important;
+   margin: auto;
+   border: 0.25em solid #121619 !important;
+   border-right-color: transparent !important;
 }
 
 .header-text {
-  margin-bottom: 50px;
-  text-align: center;
-  span {
-    font-size: 24px;
-    font-family: 'Pacifico', cursive;
-    color: #fe9d3e;
-    text-transform: capitalize;
-  }
-  h1 {
-    text-transform: uppercase;
-    margin-bottom: 0;
-  }
+   margin-bottom: 50px;
+   text-align: center;
+   span {
+      font-size: 24px;
+      font-family: "Pacifico", cursive;
+      color: #fe9d3e;
+      text-transform: capitalize;
+   }
+   h1 {
+      text-transform: uppercase;
+      margin-bottom: 0;
+   }
 }
 
 .btn-black {
-  background: #121619;
-  border: 1px solid #121619;
-  text-transform: uppercase;
-  color: #fff;
-  font-weight: 600;
-  height: 50px;
-  width: 175px;
-  border-radius: 100px;
-  transition: .4s;
-  &:hover {
-    background: transparent;
-    color: #121619;
-  }
+   background: #121619;
+   border: 1px solid #121619;
+   text-transform: uppercase;
+   color: #fff;
+   font-weight: 600;
+   height: 50px;
+   width: 175px;
+   border-radius: 100px;
+   transition: 0.4s;
+   &:hover {
+      background: transparent;
+      color: #121619;
+   }
 }
 .btn-orange {
-  background: #fe9d3e;
-  border: 1px solid #fe9d3e;
-  text-transform: uppercase;
-  color: #fff;
-  font-weight: 600;
-  height: 50px;
-  width: 175px;
-  border-radius: 100px;
-  transition: .4s;
-  &:hover {
-    background: transparent;
-    color: #fe9d3e;
-  }
+   background: #fe9d3e;
+   border: 1px solid #fe9d3e;
+   text-transform: uppercase;
+   color: #fff;
+   font-weight: 600;
+   height: 50px;
+   width: 175px;
+   border-radius: 100px;
+   transition: 0.4s;
+   &:hover {
+      background: transparent;
+      color: #fe9d3e;
+   }
 }
 
+.loader {
+   position: absolute;
+   top: calc(50% - 4em);
+   left: calc(50% - 4em);
+   width: 6em;
+   height: 6em;
+   border: 1.1em solid rgba(0, 0, 0, 0.2);
+   border-left: 1.1em solid #000000;
+   border-radius: 50%;
+   animation: load8 1.1s infinite linear;
+   transition: opacity 0.3s;
+}
+
+.loader--hide {
+   opacity: 0;
+}
+
+@keyframes load8 {
+   0% {
+      transform: rotate(0deg);
+   }
+   100% {
+      transform: rotate(360deg);
+   }
+}
