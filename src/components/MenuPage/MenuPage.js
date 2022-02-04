@@ -1,8 +1,8 @@
-import React from 'react';
-import useMenus from '../../hooks/useMenus';
-import Menu from '../Menu/Menu';
-import PageBanner from '../PageBanner/PageBanner';
-import './MenuPage.scss'
+import React from "react";
+import useMenus from "../../hooks/useMenus";
+import Menu from "../Menu/Menu";
+import PageBanner from "../PageBanner/PageBanner";
+import "./MenuPage.scss";
 
 const MenuPage = () => {
    const [menus] = useMenus();
@@ -14,13 +14,16 @@ const MenuPage = () => {
          </PageBanner>
          <div className="container">
             <div className="row">
-               {
-                  menus.map(menu => <Menu
+               {menus.map((menu) => (
+                  <Menu
                      menu={menu}
-                     key={menu._id}>
-                        <span>buy now</span>
-                     </Menu> )
-               }
+                     key={menu._id}
+                     bgColor={"#f1f1f1"}
+                     fgColor={"#f9f9f9"}
+                  >
+                     <span>buy now</span>
+                  </Menu>
+               ))}
             </div>
          </div>
       </div>

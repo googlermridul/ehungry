@@ -1,8 +1,8 @@
-import React from 'react';
-import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
-import useMenus from '../../hooks/useMenus'
-import Menu from '../Menu/Menu'
-import './MenuSection.scss'
+import React from "react";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import useMenus from "../../hooks/useMenus";
+import Menu from "../Menu/Menu";
+import "./MenuSection.scss";
 
 const MenuSection = () => {
    const [menus] = useMenus();
@@ -10,7 +10,7 @@ const MenuSection = () => {
 
    const handleClick = () => {
       history.push("/menus");
-   }
+   };
 
    return (
       <div className="menu-section">
@@ -20,14 +20,19 @@ const MenuSection = () => {
                <h1>OUR SPECIAL MENU</h1>
             </div>
             <div className="row">
-               {
-                  menus.slice(0, 6).map(menu => <Menu
+               {menus.slice(0, 6).map((menu) => (
+                  <Menu
                      menu={menu}
-                     key={menu._id}></Menu> )
-               }
+                     key={menu._id}
+                     bgColor={"#222"}
+                     fgColor={"#444"}
+                  ></Menu>
+               ))}
             </div>
             <div className="bottom">
-               <button onClick={handleClick} className="btn-orange" >view more</button>
+               <button onClick={handleClick} className="btn-orange">
+                  view more
+               </button>
             </div>
          </div>
       </div>

@@ -1,47 +1,52 @@
-import React, { useEffect, useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { useParams, useHistory } from 'react-router-dom';
-import useMenus from '../../hooks/useMenus';
-import PageBanner from '../PageBanner/PageBanner';
-import useAuth from '../../hooks/useAuth'
-import './FoodDetails.scss'
+import React, { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import { useParams, useHistory } from "react-router-dom";
+import useMenus from "../../hooks/useMenus";
+import PageBanner from "../PageBanner/PageBanner";
+import useAuth from "../../hooks/useAuth";
+import "./FoodDetails.scss";
 
 const FoodDetails = () => {
-   const [ menus ] = useMenus();
+   const [menus] = useMenus();
    const history = useHistory();
-   const [ details, setDetails ] = useState({});
-   const [ count, setCount ] = useState(1);
-   const { register, handleSubmit, reset, formState: { errors } } = useForm();
+   const [details, setDetails] = useState({});
+   const [count, setCount] = useState(1);
+   const {
+      register,
+      handleSubmit,
+      reset,
+      formState: { errors },
+   } = useForm();
    const { menuId } = useParams();
    const { user } = useAuth();
 
    useEffect(() => {
       if (menus.length) {
-         const matchedData = menus.find(menu => menu._id === menuId);
+         const matchedData = menus.find((menu) => menu._id === menuId);
          setDetails(matchedData);
       }
-   }, [menus])
+   }, [menus]);
 
-   const {image, name, description, price} = details;
+   const { image, name, description, price } = details;
 
-   const onSubmit = data => {
+   const onSubmit = (data) => {
       data.image = image;
       data.menu = name;
       data.price = price;
       data.email = user.email;
 
-      fetch(`https://gentle-gorge-16507.herokuapp.com/addCartOrder`, {
-         method: 'POST',
-         headers: { 'Content-Type': 'application/json'},
-         body: JSON.stringify(data)
+      fetch(`https://polar-lake-68435.herokuapp.com/addCartOrder`, {
+         method: "POST",
+         headers: { "Content-Type": "application/json" },
+         body: JSON.stringify(data),
       })
-      .then(res => res.json())
-      .then(result => {
-         if (result.insertedId) {
-            history.push("/cart")
-            reset()
-         }
-      })
+         .then((res) => res.json())
+         .then((result) => {
+            if (result.insertedId) {
+               history.push("/cart");
+               reset();
+            }
+         });
    };
 
    return (
@@ -64,33 +69,95 @@ const FoodDetails = () => {
                         <h4 className="price">${price}</h4>
                         <p>{description}</p>
                      </div>
-                     <form onSubmit={handleSubmit(onSubmit)} className="mb-0 text-start">
+                     <form
+                        onSubmit={handleSubmit(onSubmit)}
+                        className="mb-0 text-start"
+                     >
                         <div className="row">
                            <div className="form-group col-12">
                               <h5>Choose your platter</h5>
                               <div className="platter-box">
-                                 <input type="radio" className="btn-check" id="option1" value="Medium" {...register("platter", { required: true })} />
-                                 <label className="btn btn-outline-primary" htmlFor="option1">Medium</label>
-
-                                 <input type="radio" className="btn-check" id="option2" value="Large" {...register("platter", { required: true })} />
-                                 <label className="btn btn-outline-primary" htmlFor="option2">Large</label>
-
-                                 <input type="radio" className="btn-check" id="option3" value="Regular" {...register("platter", { required: true })} />
-                                 <label className="btn btn-outline-primary" htmlFor="option3">Regular</label> <br />
-                                 {errors.platter && <span className="error">select your platter</span>}
+                                 <input
+                                    type="radio"
+                                    className="btn-check"
+                                    id="option1"
+                                    value="Medium"
+                                    {...register("platter", { required: true })}
+                                 />
+                                 <label
+                                    className="btn btn-outline-primary"
+                                    htmlFor="option1"
+                                 >
+                                    Medium
+                                 </label>
+                                 <input
+                                    type="radio"
+                                    className="btn-check"
+                                    id="option2"
+                                    value="Large"
+                                    {...register("platter", { required: true })}
+                                 />
+                                 <label
+                                    className="btn btn-outline-primary"
+                                    htmlFor="option2"
+                                 >
+                                    Large
+                                 </label>
+                                 <input
+                                    type="radio"
+                                    className="btn-check"
+                                    id="option3"
+                                    value="Regular"
+                                    {...register("platter", { required: true })}
+                                 />
+                                 <label
+                                    className="btn btn-outline-primary"
+                                    htmlFor="option3"
+                                 >
+                                    Regular
+                                 </label>{" "}
+                                 <br />
+                                 {errors.platter && (
+                                    <span className="error">
+                                       select your platter
+                                    </span>
+                                 )}
                               </div>
                            </div>
                            <div className="form-group col-12">
                               <h5>quantity</h5>
                               <div className="quantity-box input-group">
-                                 <span onClick={() => count > 1 && setCount(count - 1)} className="btn-inc-dec">-</span>
-                                 <input value={count} {...register("quantity", { required: true })} />
-                                 {errors.quantity && <span className="error">select quantity</span>}
-                                 <span onClick={() => setCount(count + 1)} className="btn-inc-dec">+</span>
+                                 <span
+                                    onClick={() =>
+                                       count > 1 && setCount(count - 1)
+                                    }
+                                    className="btn-inc-dec"
+                                 >
+                                    -
+                                 </span>
+                                 <input
+                                    value={count}
+                                    {...register("quantity", {
+                                       required: true,
+                                    })}
+                                 />
+                                 {errors.quantity && (
+                                    <span className="error">
+                                       select quantity
+                                    </span>
+                                 )}
+                                 <span
+                                    onClick={() => setCount(count + 1)}
+                                    className="btn-inc-dec"
+                                 >
+                                    +
+                                 </span>
                               </div>
                            </div>
                         </div>
-                        <button type="submit" className="btn-black">Add to cart</button>
+                        <button type="submit" className="btn-black">
+                           Add to cart
+                        </button>
                      </form>
                   </div>
                </div>
