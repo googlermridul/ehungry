@@ -12,14 +12,14 @@ const MenuPage = () => {
          <PageBanner>
             <span>food menus</span>
          </PageBanner>
-         <div className="container">
+         <div className="container" style={{ minHeight: "700px" }}>
             <div className="row">
                {menus.map((menu) => (
                   <Menu
                      menu={menu}
                      key={menu._id}
-                     bgColor={"#f1f1f1"}
-                     fgColor={"#f9f9f9"}
+                     bgColor="#f1f1f1"
+                     fgColor="#f9f9f9"
                   >
                      <span>buy now</span>
                   </Menu>

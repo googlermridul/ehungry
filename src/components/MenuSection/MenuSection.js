@@ -24,8 +24,8 @@ const MenuSection = () => {
                   <Menu
                      menu={menu}
                      key={menu._id}
-                     bgColor={"#222"}
-                     fgColor={"#444"}
+                     bgColor="#222222"
+                     fgColor="#444444"
                   ></Menu>
                ))}
             </div>

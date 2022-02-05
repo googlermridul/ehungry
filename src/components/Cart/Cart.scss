@@ -87,6 +87,20 @@
       height: 45px;
       font-weight: normal;
    }
+   .success-alert,
+   .failure-alert {
+      background: #e6f7e7;
+      color: #8bc34a;
+      border-radius: 0;
+      margin-bottom: 0;
+      margin-top: 15px;
+      padding: 10.5px;
+      text-align: center;
+   }
+   .failure-alert {
+      background: #fce4e0;
+      color: #ff4500;
+   }
 }
 
 .billing-box {
@@ -98,7 +112,7 @@
          height: 50px;
          border: 1px solid #e5e5e5;
          &:focus {
-            box-shadow: 0 0rem 0rem rgba(0,0,0,.15)!important;
+            box-shadow: 0 0rem 0rem rgba(0, 0, 0, 0.15) !important;
             border: 1px solid #121619;
          }
       }

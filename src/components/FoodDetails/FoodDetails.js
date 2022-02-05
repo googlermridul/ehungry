@@ -11,6 +11,7 @@ const FoodDetails = () => {
    const history = useHistory();
    const [details, setDetails] = useState({});
    const [count, setCount] = useState(1);
+
    const {
       register,
       handleSubmit,
@@ -35,7 +36,7 @@ const FoodDetails = () => {
       data.price = price;
       data.email = user.email;
 
-      fetch(`https://polar-lake-68435.herokuapp.com/addCartOrder`, {
+      fetch(`https://gentle-gorge-16507.herokuapp.com/addCartOrder`, {
          method: "POST",
          headers: { "Content-Type": "application/json" },
          body: JSON.stringify(data),
@@ -46,7 +47,12 @@ const FoodDetails = () => {
                history.push("/cart");
                reset();
             }
+            console.log(result);
          });
+   };
+
+   const focusInput = () => {
+      document.getElementById("quantityInput").focus();
    };
 
    return (
@@ -133,10 +139,11 @@ const FoodDetails = () => {
                                     }
                                     className="btn-inc-dec"
                                  >
-                                    -
+                                    <span onClick={focusInput}>-</span>
                                  </span>
                                  <input
                                     value={count}
+                                    id="quantityInput"
                                     {...register("quantity", {
                                        required: true,
                                     })}
@@ -150,7 +157,7 @@ const FoodDetails = () => {
                                     onClick={() => setCount(count + 1)}
                                     className="btn-inc-dec"
                                  >
-                                    +
+                                    <span onClick={focusInput}>+</span>
                                  </span>
                               </div>
                            </div>

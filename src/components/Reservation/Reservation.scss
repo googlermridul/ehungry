@@ -28,7 +28,7 @@
             height: 50px;
             border: 1px solid #e5e5e5;
             &:focus {
-               box-shadow: 0 0rem 0rem rgba(0,0,0,.15)!important;
+               box-shadow: 0 0rem 0rem rgba(0, 0, 0, 0.15) !important;
                border: 1px solid #fe9d3e;
             }
          }
@@ -36,5 +36,20 @@
             color: #666;
          }
       }
+   }
+   .success-alert,
+   .failure-alert {
+      background: #e6f7e7;
+      color: #8bc34a;
+      height: 50px;
+      border-radius: 0;
+      padding: 11px;
+      text-align: center;
+      margin: auto;
+      margin-bottom: 15px;
+   }
+   .failure-alert {
+      background: #fce4e0;
+      color: #ff4500;
    }
 }

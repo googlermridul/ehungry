@@ -17,7 +17,7 @@
             height: 50px;
             border: 1px solid #e5e5e5;
             &:focus {
-               box-shadow: 0 0rem 0rem rgba(0,0,0,.15)!important;
+               box-shadow: 0 0rem 0rem rgba(0, 0, 0, 0.15) !important;
                border: 1px solid #121619;
             }
          }
@@ -82,7 +82,7 @@
    }
    .failure-alert {
       background: #fce4e0;
-      color: #fe6954;
+      color: #ff4500;
    }
    .pre-loader {
       margin-top: 15px;

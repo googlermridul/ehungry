@@ -1,12 +1,13 @@
 .order-history {
    margin: 50px 0;
    overflow: auto;
+   h4 {
+      margin-bottom: 15px;
+      text-transform: uppercase;
+   }
    .order-table {
       margin-bottom: 50px;
-      h4 {
-         margin-bottom: 15px;
-         text-transform: uppercase;
-      }
+      overflow: auto;
       .table {
          caption-side: bottom;
          border-collapse: collapse;

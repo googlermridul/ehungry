@@ -1,32 +1,32 @@
-import React, { useEffect, useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
-import './ManageMenus.scss'
+import React, { useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
+import "./ManageMenus.scss";
 
 const ManageMenus = () => {
-   const [menus, setMenus] = useState([])
+   const [menus, setMenus] = useState([]);
 
    useEffect(() => {
-      fetch('https://gentle-gorge-16507.herokuapp.com/menus')
-      .then(res => res.json())
-      .then(data => setMenus(data))
-   }, [menus])
+      fetch("https://gentle-gorge-16507.herokuapp.com/menus")
+         .then((res) => res.json())
+         .then((data) => setMenus(data));
+   }, [menus]);
 
-   const handleDelete = id => {
-      const proceed = window.confirm('Are you sure you want to delete')
+   const handleDelete = (id) => {
+      const proceed = window.confirm("Are you sure you want to delete");
       if (proceed) {
          fetch(`https://gentle-gorge-16507.herokuapp.com/deleteMenu/${id}`, {
-            method: 'DELETE'
+            method: "DELETE",
          })
-         .then(res => res.json())
-         .then(data => {
-            if (data.deletedCount) {
-               const remaining = menus.filter(menu => menu._id !== id)
-               setMenus(remaining)
-            }
-         })
+            .then((res) => res.json())
+            .then((data) => {
+               if (data.deletedCount) {
+                  const remaining = menus.filter((menu) => menu._id !== id);
+                  setMenus(remaining);
+               }
+            });
       }
-   }
+   };
 
    return (
       <div className="manage-menus">
@@ -46,23 +46,39 @@ const ManageMenus = () => {
                            </tr>
                         </thead>
                         <tbody>
-                           {
-                              menus.map(menu => (
-                                 <tr key={menu._id}>
-                                    <td>
-                                       <img className="img-fluid" src={menu.image} alt="" />
-                                    </td>
-                                    <td><p>{menu.name}</p></td>
-                                    <td><p></p></td>
-                                    <td><p>${menu.price}</p></td>
-                                    <td>
-                                       <p><button onClick={() => handleDelete(menu._id)}  className="btn-black delete">
-                                          <FontAwesomeIcon icon={faTrashAlt} className="fa-icon" />
-                                       </button></p>
-                                    </td>
-                                 </tr>
-                              ))
-                           }
+                           {menus.map((menu) => (
+                              <tr key={menu._id}>
+                                 <td>
+                                    <img
+                                       className="img-fluid"
+                                       src={menu.image}
+                                       alt=""
+                                    />
+                                 </td>
+                                 <td>
+                                    <p>{menu.name}</p>
+                                 </td>
+                                 <td>
+                                    <p></p>
+                                 </td>
+                                 <td>
+                                    <p>${menu.price}</p>
+                                 </td>
+                                 <td>
+                                    <p>
+                                       <button
+                                          onClick={() => handleDelete(menu._id)}
+                                          className="btn-black delete"
+                                       >
+                                          <FontAwesomeIcon
+                                             icon={faTrashAlt}
+                                             className="fa-icon"
+                                          />
+                                       </button>
+                                    </p>
+                                 </td>
+                              </tr>
+                           ))}
                         </tbody>
                      </table>
                   </div>
