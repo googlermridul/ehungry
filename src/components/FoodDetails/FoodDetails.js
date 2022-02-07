@@ -36,19 +36,22 @@ const FoodDetails = () => {
       data.price = price;
       data.email = user.email;
 
-      fetch(`https://gentle-gorge-16507.herokuapp.com/addCartOrder`, {
-         method: "POST",
-         headers: { "Content-Type": "application/json" },
-         body: JSON.stringify(data),
-      })
-         .then((res) => res.json())
-         .then((result) => {
-            if (result.insertedId) {
-               history.push("/cart");
-               reset();
-            }
-            console.log(result);
-         });
+      if (user.email) {
+         fetch(`https://gentle-gorge-16507.herokuapp.com/addCartOrder`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+         })
+            .then((res) => res.json())
+            .then((result) => {
+               if (result.insertedId) {
+                  history.push("/cart");
+                  reset();
+               }
+            });
+      } else {
+         history.push("/login");
+      }
    };
 
    const focusInput = () => {

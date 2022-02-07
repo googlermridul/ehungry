@@ -53,9 +53,9 @@ function App() {
                      <Route path="/menus">
                         <MenuPage />
                      </Route>
-                     <PrivateRoute path="/menu/:menuId">
+                     <Route path="/menu/:menuId">
                         <FoodDetails />
-                     </PrivateRoute>
+                     </Route>
                      <Route path="/login">
                         <Login />
                      </Route>
