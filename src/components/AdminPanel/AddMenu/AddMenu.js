@@ -11,10 +11,20 @@ const AddMenu = () => {
    } = useForm();
 
    const onSubmit = (data) => {
+      // const img = data.image[0];
+      // const { name, price, description } = data;
+      // const formData = new FormData();
+
+      // formData.append("name", name);
+      // formData.append("price", price);
+      // formData.append("image", img);
+      // formData.append("description", description);
+
       fetch(`https://gentle-gorge-16507.herokuapp.com/addMenu`, {
          method: "POST",
          headers: { "Content-Type": "application/json" },
          body: JSON.stringify(data),
+         // body: formData,
       })
          .then((res) => res.json())
          .then((result) => {
@@ -77,6 +87,20 @@ const AddMenu = () => {
                                  </span>
                               )}
                            </div>
+                           {/* <div className="form-group col-12">
+                              <input
+                                 className="form-control "
+                                 type="file"
+                                 placeholder="Image URL"
+                                 accept="image/*"
+                                 {...register("image", { required: true })}
+                              />
+                              {errors.image && (
+                                 <span className="error">
+                                    image is required
+                                 </span>
+                              )}
+                           </div> */}
                            <div className="form-group col-12">
                               <textarea
                                  cols="30"

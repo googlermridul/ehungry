@@ -21,6 +21,11 @@ const Menu = (props) => {
             <div onClick={() => handleDetails(_id)} className="menu-box">
                <div className="img-box">
                   <img className="img-fluid" src={image} alt="" />
+                  {/* <img
+                     className="img-fluid"
+                     src={`data:image/png;base64,${image}`}
+                     alt=""
+                  /> */}
                </div>
                <div className="info">
                   <h5 className="name">{name}</h5>
